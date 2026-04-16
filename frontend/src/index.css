@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-brand-light text-brand-dark transition-colors duration-300;
+  }
+  
+  .dark body {
+    @apply bg-brand-dark text-brand-light;
+  }
+}
+
+.glass-card {
+  @apply bg-glass backdrop-blur-md border border-white/20 shadow-xl rounded-2xl;
+}
