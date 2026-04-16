@@ -1,3 +1,21 @@
+# YouTube Masterclass Lesson 17: Sending JavaScript FormData to the Server
+
+## Instructor Opening Script (To Camera)
+"Welcome back! At this very moment, we have a Spring Boot API craving `multipart/form-data`, and a React Frontend holding a raw JPG file. Today is where they finally meet.
+
+Standard JSON will not work when dealing with images. We must use the native JavaScript `FormData` interface. This allows us to pack text and physical files into a single unified payload. We are going to rewrite our Axios logic, staple our JWT to the headers, and blast the data across the network to our PostgreSQL server!"
+
+---
+
+## Part 1: Programming the TripWizard Upload Logic
+
+### Instructor Script (Screen Recording VS Code)
+"Open up `TripWizard.tsx`. We are deleting our fake 2-second timeout. Watch very closely as we instantiate `new FormData()` and append all of our state strings precisely to match the `@RequestParam` names we hardcoded in our Spring Boot Controller."
+
+### Code to Type (`frontend/src/pages/business/TripWizard.tsx`)
+"Fully replace `TripWizard.tsx` with the live integration logic:"
+
+```tsx
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { toast } from 'react-toastify';
@@ -139,3 +157,16 @@ export default function TripWizard() {
     </motion.div>
   );
 }
+```
+
+### Explanation for the Audience:
+"Notice how we deliberately configured Axios using `{ headers: { 'Content-Type': 'multipart/form-data' } }`. This signals to the Spring Boot network that it must parse physical boundaries, which perfectly triggers our `@RequestParam` backend decorators. 
+
+Additionally, we did NOT have to write logic to send our JWT token. Because we are using the global `apiClient` we configured in Step 8, our Interceptor silently wraps the JWT around this request automatically in the background!"
+
+---
+
+## Instructor Outro (To Camera)
+"Phase 3 is entirely finished. The vendor logs in, fills out the form, clicks upload, the image hits Cloudinary, PostgreSQL saves the data, and if you refresh the public Tripy Destination Catalog... your brand new trip renders right in the glass card grid perfectly!
+
+In Phase 4, we deal with the most fun element: Live Interactions! We are going back to the frontend to build the specific Details Page for the trip, and we will integrate the amazing Nano AI Chatbot so users can negotiate directly before purchasing. Subscribe and I'll catch you there!"
