@@ -3,6 +3,7 @@ import Hero from '../components/Hero';
 import DashboardLayout from '../layouts/DashboardLayout';
 import BusinessDashboard from '../pages/BusinessDashboard';
 import ProtectedRoute from '../components/ProtectedRoute';
+import Catalog from '../pages/Catalog';
 
 export default function AppRoutes() {
   return (
@@ -10,7 +11,7 @@ export default function AppRoutes() {
       
       {/* PUBLIC ROUTES (No Auth Required) */}
       <Route path="/" element={<Hero />} />
-      <Route path="/destinations" element={<div className="p-20 text-center">Public Trips Catalog Here</div>} />
+      <Route path="/destinations" element={<Catalog />} />
       
       {/* PROTECTED ROUTES (Requires Login) */}
       <Route element={<ProtectedRoute />}>
