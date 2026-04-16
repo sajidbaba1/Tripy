@@ -23,7 +23,7 @@ npx create-vite@latest frontend --template react-ts-swc
 ```bash
 cd frontend
 npm install react-router-dom framer-motion zustand react-toastify axios
-npm install -D tailwindcss postcss autoprefixer
+npm install -D tailwindcss@^3.4.17 postcss autoprefixer
 ```
 
 ### Explanation for the Audience:
