@@ -1,5 +1,5 @@
 import apiClient from './axiosConfig';
-import { TripData } from '../components/ui/TripCard';
+import type { TripData } from '../components/ui/TripCard';
 
 export const tripService = {
     // Note: This matches the Spring Boot @GetMapping we wrote

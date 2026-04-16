@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import TripCard, { TripData } from '../components/ui/TripCard';
+import TripCard from '../components/ui/TripCard';
+import type { TripData } from '../components/ui/TripCard';
 import { tripService } from '../api/tripService';
 
 export default function Catalog() {
