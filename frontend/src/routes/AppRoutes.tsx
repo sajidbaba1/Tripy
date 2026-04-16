@@ -6,6 +6,7 @@ import ProtectedRoute from '../components/ProtectedRoute';
 import Catalog from '../pages/Catalog';
 import TripWizard from '../pages/business/TripWizard';
 import TripDetails from '../pages/TripDetails';
+import SuperAdminDashboard from '../pages/SuperAdminDashboard';
 
 export default function AppRoutes() {
   return (
@@ -32,9 +33,9 @@ export default function AppRoutes() {
              <Route path="business/new-trip" element={<TripWizard />} />
           </Route>
 
-          {/* Admin Specific Dashboard Route (Coming Soon) */}
+          {/* Admin Specific Dashboard Route */}
           <Route element={<ProtectedRoute allowedRoles={['SUPER_ADMIN', 'ADMIN']} />}>
-             <Route path="admin" element={<div className="p-20">Admin Analytics Shell...</div>} />
+             <Route path="admin" element={<SuperAdminDashboard />} />
           </Route>
 
         </Route>
