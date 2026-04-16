@@ -4,6 +4,8 @@ import DashboardLayout from '../layouts/DashboardLayout';
 import BusinessDashboard from '../pages/BusinessDashboard';
 import ProtectedRoute from '../components/ProtectedRoute';
 import Catalog from '../pages/Catalog';
+import TripWizard from '../pages/business/TripWizard';
+import TripDetails from '../pages/TripDetails';
 
 export default function AppRoutes() {
   return (
@@ -12,6 +14,7 @@ export default function AppRoutes() {
       {/* PUBLIC ROUTES (No Auth Required) */}
       <Route path="/" element={<Hero />} />
       <Route path="/destinations" element={<Catalog />} />
+      <Route path="/trip/:id" element={<TripDetails />} />
       
       {/* PROTECTED ROUTES (Requires Login) */}
       <Route element={<ProtectedRoute />}>
@@ -26,6 +29,7 @@ export default function AppRoutes() {
           {/* Business Specific Dashboard Route */}
           <Route element={<ProtectedRoute allowedRoles={['BUSINESS']} />}>
              <Route path="business" element={<BusinessDashboard />} />
+             <Route path="business/new-trip" element={<TripWizard />} />
           </Route>
 
           {/* Admin Specific Dashboard Route (Coming Soon) */}
